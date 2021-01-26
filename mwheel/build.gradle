@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 
 android {
@@ -25,11 +26,11 @@ def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 
 def getVersionName = { ->
-    return "1.0.0" // Replace with version Name
+    return "1.0.1" // Replace with version Name
 }
 
 def getArtificatId = { ->
-    return "spinwheel" // Replace with library name ID
+    return "mwheel" // Replace with library name ID
 }
 
 publishing {
@@ -70,4 +71,9 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:2.0.4"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
