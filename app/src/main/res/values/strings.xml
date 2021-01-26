@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MWheelDemo</string>
     <string name="start">Start</string>
+    <string name="spin">Spin wheel !!!</string>
 </resources>

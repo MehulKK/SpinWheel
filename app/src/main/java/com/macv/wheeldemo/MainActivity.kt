@@ -1,6 +1,5 @@
 package com.macv.wheeldemo
 
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
