@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-##### Configuration
+# Configuration
 
 ## All Attributes
 ------------------------
