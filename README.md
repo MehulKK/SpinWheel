@@ -42,6 +42,7 @@ dependencies {
 | `app:image_padding` | Change item image padding | `0` |
 
 ## Usage
+------------------------
 ```
 <com.macv.mwheel.MSpinWheel
         android:id="@+id/lwv"
@@ -49,7 +50,7 @@ dependencies {
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         LuckyWheel:background_color="#141A1E"/>
-        ```
+```
 
 ## Initialise
 ![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/initialise.png)
