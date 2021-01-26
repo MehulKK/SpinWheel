@@ -42,7 +42,7 @@ class MSpinWheel : FrameLayout, OnTouchListener, OnRotationListener {
     private fun applyAttribute(attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LuckyWheel, 0, 0)
         try {
-            val backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, Color.GREEN)
+            val backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, Color.parseColor("#141A1E"))
             val arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.ic_group_1459)
             val imagePadding = typedArray.getDimensionPixelSize(R.styleable.LuckyWheel_image_padding, 0)
             wheelView.setWheelBackgoundWheel(backgroundColor)
