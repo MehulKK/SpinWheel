@@ -39,7 +39,6 @@ dependencies {
 | --- | --- | --- |
 | `app:background_color` | Choose the background color | `Color.parseColor('#141A1E')` |
 | `app:arrow_image` | Choose wheel image arrow | `R.drawablw.ic_group_1459` |
-| `app:image_padding` | Change item image padding | `0` |
 
 ## Usage
 ------------------------
