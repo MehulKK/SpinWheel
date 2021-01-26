@@ -6,7 +6,8 @@
 
 ## Demo
 
-![alt text](https://github.com/MehulKK/SpinWheel/samples/master/spin.gif)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/spin.gif)
+
 
 
 ### Gradle Dependency
@@ -32,10 +33,10 @@ dependencies {
 ##### Configuration
 
 ## Initialise
-![alt text](https://github.com/MehulKK/SpinWheel/samples/master/initialise.png)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/initialise.png)
 
 ## Listener
-![alt text](https://github.com/MehulKK/SpinWheel/samples/master/listener.png)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/listener.png)
 
 ## Code
 ```
