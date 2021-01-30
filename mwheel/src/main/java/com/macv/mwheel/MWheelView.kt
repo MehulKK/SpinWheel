@@ -1,5 +1,6 @@
 package com.macv.mwheel
 
+import android.R.attr.textColor
 import android.animation.Animator
 import android.animation.Animator.AnimatorListener
 import android.content.Context
@@ -8,6 +9,9 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import kotlin.math.cos
+import kotlin.math.sin
+
 
 internal class MWheelView : View {
     private var range = RectF()
@@ -143,13 +147,53 @@ internal class MWheelView : View {
      * @param text       string to show
      */
     private fun drawText(canvas: Canvas, tempAngle: Float, sweepAngle: Float, text: String) {
-        val path = Path()
+        /*val path = Path()
         path.addArc(range, tempAngle, sweepAngle)
         val textWidth = textPaint!!.measureText(text)
-        val hOffset = (radius * Math.PI / mWheelItems!!.size / 2 - textWidth / 2).toInt()
-        val vOffset = radius / 2 / 3 - 3
+        val hOffset = (radius * Math.PI / mWheelItems.size / 2 - textWidth / 2).toInt()
+        val vOffset = radius / 2 / 3 - 3*/
+        /*val mMatrix = Matrix()
+        val bounds = RectF()
+        path.computeBounds(bounds, true)
+        mMatrix.postRotate(80f, bounds.centerX(), bounds.centerY())
+        path.transform(mMatrix)
+        Log.e("text", ""+ text)*/
+
+        /*val matrix = Matrix()
+        //matrix.setScale(-1f, -1f, (width / 2).toFloat(), (height / 2).toFloat())
+        path.addArc(range, 0f, 360f)
+        mMatrix.postRotate(80f)
+        path.transform(matrix)*/
+
         //canvas.drawText(text, hOffset, vOffset, textPaint);
-        canvas.drawTextOnPath(text, path, hOffset.toFloat(), vOffset.toFloat(), textPaint)
+        //canvas.drawTextOnPath(text, path, hOffset.toFloat(), vOffset.toFloat(), textPaint)
+
+        canvas.save()
+        val arraySize: Int = mWheelItems.size
+
+        //if (textColor == 0) mTextPaint.setColor(if (isColorDark(backgroundColor)) -0x1 else -0x1000000)
+
+        val typeface = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD)
+        textPaint?.typeface = typeface
+        //textPaint?.textSize = mSecondaryTextSize
+        textPaint?.textAlign = Paint.Align.LEFT
+
+        val textWidth: Float? = textPaint?.measureText(text)
+
+        val initFloat: Float = tempAngle + 360f / arraySize / 2
+        val angle = (initFloat * Math.PI / 180).toFloat()
+
+        val x = (center + radius / 2 / 1.25 * cos(angle.toDouble())).toFloat()
+        val y = (center + radius / 2 / 1.25 * sin(angle.toDouble()))
+
+        val rect = RectF(x + textWidth!!, y.toFloat(), x - textWidth, y.toFloat())
+
+        val path = Path()
+        path.addRect(rect, Path.Direction.CW)
+        path.close()
+        canvas.rotate(initFloat + arraySize / 18f, x.toFloat(), y.toFloat())
+        textPaint?.textSize?.div(2.75f)?.let { canvas.drawTextOnPath(text, path, 20 / 7f, it, textPaint) }
+        canvas.restore()
     }
 
     /**

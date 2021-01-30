@@ -9,6 +9,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginTop
 import java.lang.Exception
 
 class MSpinWheel : FrameLayout, OnTouchListener, OnRotationListener {
@@ -32,6 +34,7 @@ class MSpinWheel : FrameLayout, OnTouchListener, OnRotationListener {
         setOnTouchListener(this)
         wheelView = findViewById(R.id.wv_main_wheel)
         wheelView.setOnRotationListener(this)
+        //wheelView.layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, width)
         arrow = findViewById(R.id.iv_arrow)
     }
 
