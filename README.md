@@ -26,7 +26,7 @@ allprojects {
 
 ```
 dependencies {
-	implementation 'com.github.MehulKK:SpinWheel:1.0.2'
+	implementation 'com.github.MehulKK:SpinWheel:1.0.4'
 }
 ```
 
