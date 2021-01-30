@@ -6,7 +6,7 @@
 
 ## Demo
 
-![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/spin.gif)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/updated.gif)
 
 
 
