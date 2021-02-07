@@ -56,7 +56,7 @@
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_weight="1"
             android:fontFamily="@font/gopher_bold"
-            android:text="@{UtilsKt.getPercentage(dataModel.avgPercent)}"
+            android:text="@{dataModel.avgPercent}"
             android:textColor="@color/item_text"
             android:textSize="@dimen/_14ssp"
             tools:text="26%" />
@@ -69,7 +69,7 @@
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_weight="1"
             android:fontFamily="@font/gopher_bold"
-            android:text="@{UtilsKt.getPercentage(dataModel.yourPercent)}"
+            android:text="@{dataModel.yourPercent}"
             android:textColor="@color/item_text_you"
             android:textSize="@dimen/_14ssp"
             tools:text="32%" />

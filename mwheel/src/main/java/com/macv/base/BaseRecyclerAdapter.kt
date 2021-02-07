@@ -18,15 +18,22 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
     private var arrayListFiltered = ArrayList<T>()
     private val itemTypeNormal = 1
     private val itemTypeLoader = 2
+    private val itemTypeFooter = 3
     private var filteredText = ""
     protected val arrayList = ArrayList<T>()
     protected var previousArrayList = ArrayList<T>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
-        val binding: ViewDataBinding = if (viewType == itemTypeNormal) {
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForType(viewType), parent, false)
-        } else {
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForLoading(viewType), parent, false)
+        val binding: ViewDataBinding = when (viewType) {
+            itemTypeNormal -> {
+                DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForType(viewType), parent, false)
+            }
+            itemTypeFooter -> {
+                DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForFooter(viewType), parent, false)
+            }
+            else -> {
+                DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForLoading(viewType), parent, false)
+            }
         }
         return RecyclerHolder(binding)
     }
@@ -36,10 +43,16 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (isItemLoading(position)) {
-            itemTypeLoader
-        } else {
-            itemTypeNormal
+        return when {
+            isItemLoading(position) -> {
+                itemTypeLoader
+            }
+            isPositionFooter(position) -> {
+                itemTypeFooter
+            }
+            else -> {
+                itemTypeNormal
+            }
         }
     }
 
@@ -58,6 +71,10 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
      * @return Int
      */
     open fun getLayoutIdForLoading(viewType: Int): Int {
+        return 0
+    }
+
+    open fun getLayoutIdForFooter(viewType: Int): Int {
         return 0
     }
 
@@ -241,6 +258,18 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         }
     }
 
+    fun addFooter() {
+        if(!isFooter()) {
+            val newList = ArrayList<T>(arrayList)
+            getFooterItem()?.let { newList.add(it) }
+            setList(newList)
+        }
+    }
+
+    protected open fun getFooterItem(): T? {
+        return null
+    }
+
     /**
      * This fun is used to pagination remove loader
      */
@@ -254,12 +283,26 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         }
     }
 
+    fun removeFooter() {
+        if (isFooter()) {
+            if (arrayList.isNotEmpty()) {
+                val newList = ArrayList<T>(arrayList)
+                newList.remove(getFooterItem())
+                setList(newList)
+            }
+        }
+    }
+
     /**
      * This fun is used to know item is loading or not.
      * @return Boolean
      */
     internal fun isLoading(): Boolean {
         return arrayList.isEmpty() || isLastItemLoading()
+    }
+
+    internal fun isFooter(): Boolean {
+        return arrayList.isEmpty() || isFooterItemLoading()
     }
 
     /**
@@ -270,12 +313,20 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         return false
     }
 
+    open fun isFooterItemLoading(): Boolean {
+        return false
+    }
+
     /**
      * This fun is used to get particular item is loading or not.
      * @param position Int
      * @return Boolean
      */
     open fun isItemLoading(position: Int): Boolean {
+        return false
+    }
+
+    open fun isPositionFooter(position: Int): Boolean {
         return false
     }
 

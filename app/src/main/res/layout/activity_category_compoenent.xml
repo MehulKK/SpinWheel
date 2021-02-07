@@ -11,15 +11,11 @@
         android:orientation="vertical"
         tools:context="com.macv.wheeldemo.MainActivity">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/spin"/>
-
         <com.macv.category.CategoryComponent
             android:id="@+id/category"
             android:layout_width="match_parent"
             tools:listitem="@layout/list_item"
+            app:showFooter="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_height="wrap_content" />
 

@@ -23,6 +23,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CategoryComponentActivity"
+            android:label="@string/category_component"
             android:screenOrientation="portrait" />
     </application>
 

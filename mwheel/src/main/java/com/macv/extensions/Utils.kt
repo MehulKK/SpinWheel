@@ -43,4 +43,9 @@ fun loadImage(view: ImageView, imageUrl: String?) {
     }
 }
 
-fun String.getPercentage() : String = String.format("%s%%",(this.toDouble() * 100))
+fun String.getPercentage() : String {
+    if (this.isNotEmpty()){
+        return String.format("%s%%",(this.toDouble() * 100))
+    }
+    return ""
+}
