@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## SpinWheel
+## Category Component
 
 ![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/category.gif)
 
