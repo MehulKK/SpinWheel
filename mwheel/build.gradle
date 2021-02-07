@@ -45,7 +45,7 @@ def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 
 def getVersionName = { ->
-    return "1.0.4" // Replace with version Name
+    return "1.0.5" // Replace with version Name
 }
 
 def getArtificatId = { ->
@@ -90,7 +90,7 @@ dependencies {
 
     // Glide dependency
     api 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
