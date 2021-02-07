@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg?style=flat)](https://www.android.com/)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16#l16)
 
-## Demo
+## SpinWheel
 
 ![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/updated.gif)
 
@@ -114,5 +114,51 @@ class MainActivity : AppCompatActivity() {
         wheelItems.add(WheelItem(Color.parseColor("#141A1E"), "19 $", 19, "USD"))
         wheelItems.add(WheelItem(Color.parseColor("#040D14"), "20 $", 20, "USD"))
     }
+}
+```
+
+## SpinWheel
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/category.gif)
+
+# Configuration
+
+## All Attributes
+------------------------
+
+| Attribute | Description | Default |
+| --- | --- | --- |
+| `app:showFooter` | Show footer or not | `false` |
+
+## Usage
+------------------------
+```
+<com.macv.category.CategoryComponent
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/list_item"
+            app:showFooter="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="wrap_content" />
+```
+
+## Code snippet
+
+```
+category.setDynamicList(getCategoryList())      // set category list items
+
+// Footer close callback
+category.setFooterCloseListener(object : FooterDismissListener{
+    override fun onClose() {
+        Toast.makeText(this@CategoryComponentActivity, "Footer close", Toast.LENGTH_LONG).show()
+    }
+})
+
+private fun getCategoryList(): ArrayList<CategoryItem> {
+    val list = ArrayList<CategoryItem>()
+    list.add(CategoryItem(id = 1, emoji = "https://dl.dropboxusercontent.com/s/grmetj2iixvz253/Group%201320.png", name = "Restaurant", avgPercent = "26%", yourPercent = "36%", monthlyOverSpendDollar = "76"))
+    list.add(CategoryItem(id = 2, emoji = "https://dl.dropboxusercontent.com/s/rx8rh1uxhxrawx9/Group%201669.png", name = "Clothing", avgPercent = "27%", yourPercent = "37%", monthlyOverSpendDollar = "76"))
+    list.add(CategoryItem(id = 3, emoji = "https://dl.dropboxusercontent.com/s/igoyutvhcf5hgdr/Group%201670.png", name = "Subscription", avgPercent = "26%", yourPercent = "38%", monthlyOverSpendDollar = "76"))
+    return list
 }
 ```
