@@ -8,4 +8,10 @@
         <attr name="image_padding" format="dimension"/>
     </declare-styleable>
 
+
+    <declare-styleable name="CategoryComponent">
+        <attr name="showFooter" format="boolean" />
+    </declare-styleable>
+
+
 </resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataModel"
+            type="com.macv.category.CategoryItem" />
+
+        <variable
+            name="clickHandler"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.macv.extensions.UtilsKt" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/item_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingTop="@dimen/_7sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_7sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="@dimen/_33sdp"
+            app:imageUrl="@{dataModel.emoji}"
+            android:layout_height="@dimen/_33sdp"
+            android:background="@drawable/ic_category_image_placeholder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_regular"
+            android:maxLines="1"
+            android:text="@{dataModel.name}"
+            android:textColor="@color/item_text"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Category" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtAvg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gopher_bold"
+            android:text="@{UtilsKt.getPercentage(dataModel.avgPercent)}"
+            android:textColor="@color/item_text"
+            android:textSize="@dimen/_14ssp"
+            tools:text="26%" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtYou"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gopher_bold"
+            android:text="@{UtilsKt.getPercentage(dataModel.yourPercent)}"
+            android:textColor="@color/item_text_you"
+            android:textSize="@dimen/_14ssp"
+            tools:text="32%" />
+    </LinearLayout>
+</layout>
