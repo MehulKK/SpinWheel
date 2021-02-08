@@ -11,5 +11,6 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
         spin.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         btnCategory.setOnClickListener { startActivity(Intent(this, CategoryComponentActivity::class.java)) }
+        btnAchievement.setOnClickListener { startActivity(Intent(this, AchievementComponentActivity::class.java)) }
     }
 }
