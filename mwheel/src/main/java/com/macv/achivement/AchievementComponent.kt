@@ -30,7 +30,6 @@ class AchievementComponent : RecyclerView{
         mContext = context
         if (attrs != null) {
             val a = context.obtainStyledAttributes(attrs, R.styleable.CategoryComponent, defStyleAttr, 0)
-            // isFooter = a.getBoolean(R.styleable.CategoryComponent_showFooter, false)
             a.recycle()
         }
 

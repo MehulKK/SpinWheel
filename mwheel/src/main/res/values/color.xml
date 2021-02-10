@@ -2,6 +2,8 @@
 <resources>
     <color name="item_bg">#1F2224</color>
     <color name="item_text">#FFFFFF</color>
-    <color name="achievement_item_text">#040D14</color>
     <color name="item_text_you">#F45656</color>
+    <color name="achievement_item_text">#FFFFFF</color>
+    <color name="achievement_item_stroke">#2A3137</color>
+    <color name="achievement_item_progress">#FDAEB6</color>
 </resources>

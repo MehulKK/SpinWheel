@@ -14,7 +14,7 @@
         <com.macv.achivement.AchievementComponent
             android:id="@+id/achievement"
             android:layout_width="match_parent"
-            tools:listitem="@layout/achivement_list_item"
+            tools:listitem="@layout/achievement_list_item"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_height="wrap_content" />
 
