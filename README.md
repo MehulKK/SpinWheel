@@ -163,3 +163,35 @@ private fun getCategoryList(): ArrayList<CategoryItem> {
     return list
 }
 ```
+
+## Achievement Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/achievement.gif)
+
+# Configuration
+
+## Usage
+------------------------
+```
+<com.macv.achivement.AchievementComponent
+    android:id="@+id/achievement"
+    android:layout_width="match_parent"
+    tools:listitem="@layout/achievement_list_item"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:layout_height="wrap_content" />
+```
+
+## Code snippet
+
+```
+achievement.setDynamicList(getAchievementList())      // set achievement list items
+
+private fun getAchievementList(): ArrayList<AchievementItem> {
+        val list = ArrayList<AchievementItem>()
+        list.add(AchievementItem(id = 1, image = "https://dl.dropboxusercontent.com/s/grmetj2iixvz253/Group%201320.png",
+                name = "Watch 30 ads + \uD83C\uDFC6 100 ", max = 40, value = 15, outlineColor = "#2A3137", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
+        list.add(AchievementItem(id = 2, image = "https://dl.dropboxusercontent.com/s/grmetj2iixvz253/Group%201320.png",
+                name = "Scan 20 Reciepts + \uD83C\uDFC6 200 ", max = 30, value = 15, outlineColor = "#2A3137", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
+        return list
+}
+```
