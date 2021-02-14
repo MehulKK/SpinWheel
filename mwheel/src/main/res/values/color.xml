@@ -6,4 +6,24 @@
     <color name="achievement_item_text">#FFFFFF</color>
     <color name="achievement_item_stroke">#2A3137</color>
     <color name="achievement_item_progress">#FDAEB6</color>
+
+    <color name="colorPrimaryDarker">#EA5A66</color>
+    <color name="colorPrimaryDark">#FB7782</color>
+    <color name="colorPrimary">#FDAEB6</color>
+    <color name="colorPrimaryLight">#FECFD2</color>
+    <color name="colorPrimaryLighter">#FEEBEC</color>
+
+    <color name="colorSecondary">#e5be98</color>
+    <color name="colorSecondaryDark">#e0b58b</color>
+
+    <color name="backgroundPrimary">#040D14</color>
+    <color name="backgroundSecondary">#1F2224</color>
+    <color name="backgroundDisabled">#353535</color>
+
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#999999</color>
+    <color name="textDisabled">#666666</color>
+
+    <color name="textPrimaryInverse">@color/backgroundPrimary</color>
+    <color name="backgroundPrimaryInverse">@color/textPrimary</color>
 </resources>
