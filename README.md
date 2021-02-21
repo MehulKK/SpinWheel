@@ -185,13 +185,19 @@ private fun getCategoryList(): ArrayList<CategoryItem> {
 
 ```
 achievement.setDynamicList(getAchievementList())      // set achievement list items
+achievement.setMaxValueListener(object : AchievementMaxListener {  // get Achievement click callback
+    override fun onClick() {
+        Toast.makeText(this@AchievementComponentActivity, "Item Click", Toast.LENGTH_LONG).show()
+    }
+})
+
 
 private fun getAchievementList(): ArrayList<AchievementItem> {
         val list = ArrayList<AchievementItem>()
-        list.add(AchievementItem(id = 1, image = "https://dl.dropboxusercontent.com/s/grmetj2iixvz253/Group%201320.png",
-                name = "Watch 30 ads + \uD83C\uDFC6 100 ", max = 40, value = 15, outlineColor = "#2A3137", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
-        list.add(AchievementItem(id = 2, image = "https://dl.dropboxusercontent.com/s/grmetj2iixvz253/Group%201320.png",
-                name = "Scan 20 Reciepts + \uD83C\uDFC6 200 ", max = 30, value = 15, outlineColor = "#2A3137", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
+        list.add(AchievementItem(id = 1, image = null, emoji = "\uD83D\uDCFA", points = 100,
+            action = "Watch 30 ads + \uD83C\uDFC6 100 ", max = 40, value = 15, outlineColor = "#FF0000", barColor = "#FDAEB6", backgroundColor = "#2A3137", textColor = "#FFFFFF"))
+        list.add(AchievementItem(id = 2, image = R.drawable.ic_close, emoji = "\uD83D\uDCFA", points = 200,
+            action = "Scan 20 Reciepts + \uD83C\uDFC6 200 ", max = 30, value = 30, outlineColor = "#00FF00", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
         return list
 }
 ```
