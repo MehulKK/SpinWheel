@@ -1,30 +1,29 @@
 package com.macv.achivement
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
+import com.macv.achivement.utils.DefaultBootstrapBrand
+import com.macv.achivement.utils.ValueUpdateListener
 import com.macv.base.BaseRecyclerAdapter
 import com.macv.category.FooterDismissListener
 import com.macv.mwheel.R
 import com.macv.mwheel.databinding.AchievementListItemBinding
 
 
-class AchievementAdapter : BaseRecyclerAdapter<AchievementItem>() {
-    private lateinit var mFooterDismissListener: FooterDismissListener
+class AchievementAdapter(private val context : Context) : BaseRecyclerAdapter<AchievementItem>() {
+    private lateinit var mAchievementMaxListener : AchievementMaxListener
     override fun getLayoutIdForType(viewType: Int) = R.layout.achievement_list_item
 
     override fun onItemClick(view: View?, adapterPosition: Int) {
 
         when (view?.id) {
-            R.id.btnClose -> {
-                mFooterDismissListener.onClose()
-                removeFooter()
+            R.id.imgBack -> {
+                mAchievementMaxListener.onClick()
             }
         }
     }
@@ -32,36 +31,35 @@ class AchievementAdapter : BaseRecyclerAdapter<AchievementItem>() {
     @SuppressLint("Range")
     override fun setDataForListItem(binding: ViewDataBinding, dataModel: AchievementItem) {
         super.setDataForListItem(binding, dataModel)
-        val achivementListItemBinding: AchievementListItemBinding = binding as AchievementListItemBinding
-        achivementListItemBinding.itemView.setBackgroundResource(R.drawable.achivement_default_bg)
+        val achievementListItemBinding: AchievementListItemBinding = binding as AchievementListItemBinding
 
-        val drawable: GradientDrawable = achivementListItemBinding.itemView.background as GradientDrawable
-        drawable.setStroke(5, Color.parseColor(dataModel.outlineColor))
+        achievementListItemBinding.exampleProgressChange.progress = ((dataModel.value * 100) / dataModel.max)
 
 
-        val drawableProgress: GradientDrawable = achivementListItemBinding.itemProgress.background as GradientDrawable
-        drawableProgress.setColor(Color.parseColor(dataModel.barColor))
+        val backgroundColor = if (dataModel.backgroundColor.isEmpty()) ContextCompat.getColor(context, R.color.achievement_item_background) else Color.parseColor(dataModel.backgroundColor)
+        val barColor = if (dataModel.barColor.isEmpty()) ContextCompat.getColor(context, R.color.achievement_item_progress) else Color.parseColor(dataModel.barColor)
+        val outlineColor = if (dataModel.outlineColor.isEmpty()) ContextCompat.getColor(context, R.color.achievement_item_stroke) else Color.parseColor(dataModel.outlineColor)
+        val textColor = if (dataModel.textColor.isEmpty()) ContextCompat.getColor(context, R.color.achievement_item_text) else Color.parseColor(dataModel.textColor)
 
-        val paramsProcess: LinearLayout.LayoutParams =
-                LinearLayout.LayoutParams(0, ConstraintLayout.LayoutParams.MATCH_PARENT, ((dataModel.value*100) / dataModel.max).toFloat())
-        achivementListItemBinding.itemProgress.layoutParams = paramsProcess
+        achievementListItemBinding.txtAchievement.setTextColor(textColor)
 
-
-        achivementListItemBinding.itemView.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                achivementListItemBinding.itemView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val height = achivementListItemBinding.itemView.height //height is ready
-                val radius = (height/ 2).toFloat()
-                drawable.cornerRadius = radius
-                drawableProgress.cornerRadii = floatArrayOf(radius, radius, 0f, radius, radius, 0f, radius, radius)
+        achievementListItemBinding.exampleProgressChange.setProgressbarColor(DefaultBootstrapBrand.DANGER, barColor, outlineColor, backgroundColor)
+        achievementListItemBinding.exampleProgressChange.setValueUpdateListener(object : ValueUpdateListener {
+            override fun value(value: Int) {
+                if (value >= dataModel.max) {
+                    achievementListItemBinding.txtAchievement.text = String.format(context.getString(R.string.success_action), dataModel.points)
+                } else {
+                    achievementListItemBinding.txtAchievement.text = dataModel.action
+                }
             }
         })
-
-
-        achivementListItemBinding.txtAchievement.setTextColor(Color.parseColor(dataModel.textColor))
     }
 
     override fun areItemsSame(oldItem: AchievementItem, newItem: AchievementItem): Boolean {
         return oldItem.id == newItem.id
+    }
+
+    fun setMaxValueListener(achievementMaxListener: AchievementMaxListener) {
+        mAchievementMaxListener = achievementMaxListener
     }
 }

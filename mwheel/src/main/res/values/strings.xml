@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpinWheel</string>
+    <string name="success_action">Claim 🏆 %s</string>
 </resources>

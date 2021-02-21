@@ -37,12 +37,16 @@ class AchievementComponent : RecyclerView{
     }
 
     private fun initAdapter(){
-        achievementAdapter = AchievementAdapter()
+        achievementAdapter = AchievementAdapter(mContext)
         adapter = achievementAdapter
     }
 
     fun setDynamicList(list : ArrayList<AchievementItem>){
         achievementItem = list
         achievementAdapter.setList(achievementItem)
+    }
+
+    fun setMaxValueListener(achievementMaxListener: AchievementMaxListener){
+        achievementAdapter.setMaxValueListener(achievementMaxListener)
     }
 }
