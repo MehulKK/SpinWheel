@@ -23,7 +23,7 @@ class AchievementAdapter(private val context : Context) : BaseRecyclerAdapter<Ac
 
         when (view?.id) {
             R.id.imgBack -> {
-                mAchievementMaxListener.onClick()
+                mAchievementMaxListener.onClick(arrayList[adapterPosition])
             }
         }
     }

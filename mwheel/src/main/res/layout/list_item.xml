@@ -21,57 +21,57 @@
         android:background="@color/item_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingTop="@dimen/_7sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_7sdp">
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgCategory"
-            android:layout_width="@dimen/_33sdp"
+            android:layout_width="35dp"
             app:imageUrl="@{dataModel.emoji}"
-            android:layout_height="@dimen/_33sdp"
+            android:layout_height="35dp"
             android:background="@drawable/ic_category_image_placeholder" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="3"
             android:ellipsize="end"
             android:fontFamily="@font/gopher_regular"
             android:maxLines="1"
             android:text="@{dataModel.name}"
             android:textColor="@color/item_text"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="14sp"
             tools:text="Category" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtAvg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:fontFamily="@font/gopher_bold"
             android:text="@{dataModel.avgPercent}"
             android:textColor="@color/item_text"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="16sp"
             tools:text="26%" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtYou"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:fontFamily="@font/gopher_bold"
             android:text="@{dataModel.yourPercent}"
             android:textColor="@color/item_text_you"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="16sp"
             tools:text="32%" />
     </LinearLayout>
 </layout>

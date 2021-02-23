@@ -15,8 +15,8 @@ class AchievementComponentActivity : AppCompatActivity() {
         val dataBindingUtil : ActivityAchievementCompoenentBinding = DataBindingUtil.setContentView(this, R.layout.activity_achievement_compoenent)
         achievement.setDynamicList(getAchievementList())
         achievement.setMaxValueListener(object : AchievementMaxListener{
-            override fun onClick() {
-                Toast.makeText(this@AchievementComponentActivity, "Item Click", Toast.LENGTH_LONG).show()
+            override fun onClick(achievementItem: AchievementItem) {
+                Toast.makeText(this@AchievementComponentActivity, achievementItem.action+" Item Click", Toast.LENGTH_LONG).show()
             }
         })
     }
