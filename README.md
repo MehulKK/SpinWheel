@@ -185,9 +185,9 @@ private fun getCategoryList(): ArrayList<CategoryItem> {
 
 ```
 achievement.setDynamicList(getAchievementList())      // set achievement list items
-achievement.setMaxValueListener(object : AchievementMaxListener {  // get Achievement click callback
-    override fun onClick() {
-        Toast.makeText(this@AchievementComponentActivity, "Item Click", Toast.LENGTH_LONG).show()
+achievement.setMaxValueListener(object : AchievementMaxListener{    // Achievement max click callback
+    override fun onClick(achievementItem: AchievementItem) {
+        Toast.makeText(this@AchievementComponentActivity, achievementItem.action+" Item Click", Toast.LENGTH_LONG).show()
     }
 })
 
