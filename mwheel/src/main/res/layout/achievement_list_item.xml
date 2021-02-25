@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -16,14 +16,13 @@
 
         <import type="android.text.TextUtils" />
 
-        <import type="androidx.core.content.ContextCompat"/>
+        <import type="androidx.core.content.ContextCompat" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:background="@color/item_bg"
         android:padding="7dp">
 
         <com.macv.achivement.AchievementProgressBar
@@ -38,6 +37,8 @@
             app:roundedCorners="true" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutContainer"
+            android:onClick="@{clickHandler::onClick}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -55,8 +56,8 @@
                 android:id="@+id/imgAchievement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
                 android:minWidth="35dp"
+                android:minHeight="35dp"
                 android:src="@{dataModel.image}"
                 android:visibility="@{dataModel.image != null ? View.VISIBLE : View.INVISIBLE}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +103,6 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="@{clickHandler::onClick}"
                 android:padding="7dp"
                 android:visibility="@{(dataModel.value == dataModel.max) ? View.VISIBLE : View.GONE, default = gone}"
                 app:layout_constraintBottom_toBottomOf="parent"

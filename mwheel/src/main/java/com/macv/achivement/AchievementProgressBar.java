@@ -125,7 +125,7 @@ public class AchievementProgressBar extends View implements ProgressView, Bootst
 
         bgPaint = new Paint();
         bgPaint.setStyle(Paint.Style.FILL);
-        bgPaint.setColor(ColorUtils.resolveColor(R.color.bootstrap_gray_light, getContext()));
+        bgPaint.setColor(Color.TRANSPARENT);
 
         // get attributes
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BootstrapProgressBar);

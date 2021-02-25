@@ -22,7 +22,7 @@ class AchievementAdapter(private val context : Context) : BaseRecyclerAdapter<Ac
     override fun onItemClick(view: View?, adapterPosition: Int) {
 
         when (view?.id) {
-            R.id.imgBack -> {
+            R.id.layoutContainer -> {
                 mAchievementMaxListener.onClick(arrayList[adapterPosition])
             }
         }
@@ -49,7 +49,7 @@ class AchievementAdapter(private val context : Context) : BaseRecyclerAdapter<Ac
                 if (value >= dataModel.max) {
                     achievementListItemBinding.txtAchievement.text = String.format(context.getString(R.string.success_action), dataModel.points)
                 } else {
-                    achievementListItemBinding.txtAchievement.text = dataModel.action
+                    achievementListItemBinding.txtAchievement.text = String.format(context.getString(R.string.default_action), dataModel.action, dataModel.points)
                 }
             }
         })
