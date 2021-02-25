@@ -23,7 +23,9 @@ class AchievementAdapter(private val context : Context) : BaseRecyclerAdapter<Ac
 
         when (view?.id) {
             R.id.layoutContainer -> {
-                mAchievementMaxListener.onClick(arrayList[adapterPosition])
+                val item = arrayList[adapterPosition]
+                if(item.value == item.max)
+                    mAchievementMaxListener.onClick(arrayList[adapterPosition])
             }
         }
     }
