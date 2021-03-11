@@ -26,27 +26,48 @@
         android:paddingEnd="12dp"
         android:paddingBottom="10dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgCategory"
-            android:layout_width="35dp"
-            app:imageUrl="@{dataModel.emoji}"
-            android:layout_height="35dp"
-            android:background="@drawable/ic_category_image_placeholder" />
-
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtCategory"
+            android:id="@+id/imgCategory"
+            android:layout_width="40dp"
+            android:text="@{dataModel.emoji}"
+            android:layout_height="40dp"
+            android:gravity="center"
+            tools:text="G"
+            android:textSize="16sp"
+            android:textColor="@color/textPrimary"/>
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_weight="3"
-            android:ellipsize="end"
-            android:fontFamily="@font/gopher_regular"
-            android:maxLines="1"
-            android:text="@{dataModel.name}"
-            android:textColor="@color/item_text"
-            android:textSize="14sp"
-            tools:text="Category" />
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/gopher_regular"
+                android:maxLines="1"
+                android:text="@{dataModel.name}"
+                android:textColor="@color/item_text"
+                android:textSize="14sp"
+                tools:text="Category" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtAmount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/gopher_regular"
+                android:maxLines="1"
+                android:text="@{`$`+dataModel.amount}"
+                android:textColor="@color/textPrimary50"
+                android:textSize="12sp"
+                tools:text="Category" />
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtAvg"
@@ -55,6 +76,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:fontFamily="@font/gopher_bold"
             android:text="@{dataModel.avgPercent}"
             android:textColor="@color/item_text"
@@ -68,6 +90,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:fontFamily="@font/gopher_bold"
             android:text="@{dataModel.yourPercent}"
             android:textColor="@color/item_text_you"

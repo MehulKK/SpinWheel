@@ -11,6 +11,7 @@
 
     <declare-styleable name="CategoryComponent">
         <attr name="showFooter" format="boolean" />
+        <attr name="showHeader" format="boolean" />
     </declare-styleable>
 
 

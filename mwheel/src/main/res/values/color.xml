@@ -22,11 +22,14 @@
     <color name="backgroundDisabled">#353535</color>
 
     <color name="textPrimary">#FFFFFF</color>
+    <color name="textPrimary50">#80FFFFFF</color>
     <color name="textSecondary">#999999</color>
     <color name="textDisabled">#666666</color>
 
     <color name="textPrimaryInverse">@color/backgroundPrimary</color>
     <color name="backgroundPrimaryInverse">@color/textPrimary</color>
+
+    <color name="category_image_bg">#313436</color>
 
 
     <!-- Brand -->

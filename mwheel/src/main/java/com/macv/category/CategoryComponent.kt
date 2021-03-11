@@ -11,6 +11,7 @@ class CategoryComponent : RecyclerView{
 
     private var categoryList = ArrayList<CategoryItem>()
     private var isFooter: Boolean = false
+    private var isHeader: Boolean = false
     private lateinit var categoryAdapter : CategoryAdapter
     private lateinit var mContext : Context
 
@@ -29,6 +30,7 @@ class CategoryComponent : RecyclerView{
         if (attrs != null) {
             val a = context.obtainStyledAttributes(attrs, R.styleable.CategoryComponent, defStyleAttr, 0)
             isFooter = a.getBoolean(R.styleable.CategoryComponent_showFooter, false)
+            isHeader = a.getBoolean(R.styleable.CategoryComponent_showHeader, true)
             a.recycle()
         }
 
@@ -36,13 +38,16 @@ class CategoryComponent : RecyclerView{
     }
 
     private fun initAdapter(){
-        categoryAdapter = CategoryAdapter()
+        categoryAdapter = CategoryAdapter(mContext)
         adapter = categoryAdapter
     }
 
     fun setDynamicList(list : ArrayList<CategoryItem>){
         categoryList = list
         categoryAdapter.setList(categoryList)
+
+        if(isHeader)
+            categoryAdapter.addHeader()
 
         if(isFooter) {
             categoryAdapter.addFooter()

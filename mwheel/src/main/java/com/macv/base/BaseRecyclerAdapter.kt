@@ -19,6 +19,7 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
     private val itemTypeNormal = 1
     private val itemTypeLoader = 2
     private val itemTypeFooter = 3
+    private val itemTypeHeader = 4
     private var filteredText = ""
     protected val arrayList = ArrayList<T>()
     protected var previousArrayList = ArrayList<T>()
@@ -30,6 +31,9 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
             }
             itemTypeFooter -> {
                 DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForFooter(viewType), parent, false)
+            }
+            itemTypeHeader -> {
+                DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForHeader(viewType), parent, false)
             }
             else -> {
                 DataBindingUtil.inflate(LayoutInflater.from(parent.context), getLayoutIdForLoading(viewType), parent, false)
@@ -49,6 +53,9 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
             }
             isPositionFooter(position) -> {
                 itemTypeFooter
+            }
+            isPositionHeader(position) -> {
+                itemTypeHeader
             }
             else -> {
                 itemTypeNormal
@@ -75,6 +82,10 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
     }
 
     open fun getLayoutIdForFooter(viewType: Int): Int {
+        return 0
+    }
+
+    open fun getLayoutIdForHeader(viewType: Int): Int {
         return 0
     }
 
@@ -266,7 +277,19 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         }
     }
 
+    fun addHeader() {
+        if(!isHeader()) {
+            val newList = ArrayList<T>(arrayList)
+            getHeaderItem()?.let { newList.add(0, it) }
+            setList(newList)
+        }
+    }
+
     protected open fun getFooterItem(): T? {
+        return null
+    }
+
+    protected open fun getHeaderItem(): T? {
         return null
     }
 
@@ -293,6 +316,16 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         }
     }
 
+    fun removeHeader() {
+        if (isHeader()) {
+            if (arrayList.isNotEmpty()) {
+                val newList = ArrayList<T>(arrayList)
+                newList.remove(getHeaderItem())
+                setList(newList)
+            }
+        }
+    }
+
     /**
      * This fun is used to know item is loading or not.
      * @return Boolean
@@ -303,6 +336,10 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
 
     internal fun isFooter(): Boolean {
         return arrayList.isEmpty() || isFooterItemLoading()
+    }
+
+    internal fun isHeader(): Boolean {
+        return arrayList.isEmpty() || isHeaderItemLoading()
     }
 
     /**
@@ -317,6 +354,10 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
         return false
     }
 
+    open fun isHeaderItemLoading(): Boolean {
+        return false
+    }
+
     /**
      * This fun is used to get particular item is loading or not.
      * @param position Int
@@ -327,6 +368,10 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseRecyclerAdapter
     }
 
     open fun isPositionFooter(position: Int): Boolean {
+        return false
+    }
+
+    open fun isPositionHeader(position: Int): Boolean {
         return false
     }
 
