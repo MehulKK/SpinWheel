@@ -1,6 +1,5 @@
 package com.macv.category
 
-import android.graphics.Color
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.macv.mwheel.R
@@ -12,7 +11,7 @@ data class CategoryItem(
         @SerializedName("emoji") val emoji: String = "",
         @SerializedName("iconBackgroundColor") val iconBackgroundColor : Int = R.color.category_image_bg,
         @SerializedName("name") val name: String = "",
-        @SerializedName("amount") val amount: String = "",
+        @SerializedName("amount") val amount: Double = 0.0,
         @SerializedName("avgPercent") val avgPercent: String = "",
         @SerializedName("yourPercent") val yourPercent: String = "",
         @SerializedName("avgTextColor") val avgTextColor: Int = R.color.textPrimary,

@@ -6,37 +6,61 @@
         <variable
             name="clickHandler"
             type="android.view.View.OnClickListener" />
+        
+        <import type="android.text.Html"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/item_bg">
+        android:layout_height="wrap_content">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="12dp"
             android:layout_marginTop="22dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="22dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imgCard"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_image"
                 android:layout_margin="5dp"
+                android:background="@drawable/ic_image_card"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgCash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hand_cash"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCard"
+                app:layout_constraintStart_toStartOf="@+id/imgCard"
+                app:layout_constraintTop_toTopOf="@+id/imgCard" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gopher_regular"
+                android:padding="5dp"
+                android:text="@{Html.fromHtml(@string/category_spend)}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCash"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgCash"
+                app:layout_constraintTop_toTopOf="@+id/imgCash" />
 
             <ImageView
                 android:id="@+id/btnClose"
@@ -46,9 +70,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="@{clickHandler::onClick}"
-                android:src="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,4 +6,5 @@
     <!--Category Component-->
     <string name="header_you">You</string>
     <string name="header_avg">Avg</string>
+    <string name="category_spend"><![CDATA[If you spent average amount on<br>🍔 restaurants you could save:<br><b>$76 /mo</b> or <b>$912 /yr</b>]]></string>
 </resources>
