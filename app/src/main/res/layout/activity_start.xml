@@ -59,7 +59,7 @@
         android:background="#FDAEB6"
         android:text="@string/countdown_component"
         LuckyWheel:layout_constraintStart_toStartOf="@+id/btnAchievement"
-        LuckyWheel:layout_constraintEnd_toEndOf="@+id/btnCatebtnAchievementgory"
+        LuckyWheel:layout_constraintEnd_toEndOf="@+id/btnAchievement"
         LuckyWheel:layout_constraintTop_toBottomOf="@+id/btnAchievement"
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
