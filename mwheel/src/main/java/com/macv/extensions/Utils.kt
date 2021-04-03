@@ -1,5 +1,6 @@
 package com.macv.extensions
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -45,7 +46,37 @@ fun loadImage(view: ImageView, imageUrl: String?) {
 
 fun String.getPercentage() : String {
     if (this.isNotEmpty()){
-        return String.format("%s%%",(this.toDouble() * 100))
+        return String.format("%s%%", (this.toDouble() * 100))
     }
     return ""
+}
+
+fun dp2px(context: Context, dpValue: Float): Float {
+    if (dpValue <= 0) return 0f
+    val scale = context.resources.displayMetrics.density
+    return (dpValue * scale + 0.5f)
+}
+
+fun sp2px(context: Context, spValue: Float): Float {
+    if (spValue <= 0) return 0f
+    val scale = context.resources.displayMetrics.scaledDensity
+    return spValue * scale
+}
+
+fun formatNum(time: Int): String {
+    return if (time < 10) "0$time" else time.toString()
+}
+
+fun px2sp(context: Context, pxValue : Float) : Float = pxValue / context.resources.displayMetrics.scaledDensity
+
+fun formatMillisecond(millisecond: Int): String? {
+    val retMillisecondStr: String
+    retMillisecondStr = if (millisecond > 99) {
+        (millisecond / 10).toString()
+    } else if (millisecond <= 9) {
+        "0$millisecond"
+    } else {
+        millisecond.toString()
+    }
+    return retMillisecondStr
 }

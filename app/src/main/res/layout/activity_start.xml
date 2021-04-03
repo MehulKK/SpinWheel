@@ -50,4 +50,18 @@
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
 
+    <Button
+        android:id="@+id/btnCountDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="#FDAEB6"
+        android:text="@string/countdown_component"
+        LuckyWheel:layout_constraintStart_toStartOf="@+id/btnAchievement"
+        LuckyWheel:layout_constraintEnd_toEndOf="@+id/btnCatebtnAchievementgory"
+        LuckyWheel:layout_constraintTop_toBottomOf="@+id/btnAchievement"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

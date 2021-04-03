@@ -4,4 +4,5 @@
     <string name="spin">Spin wheel !!!</string>
     <string name="category_component">Category Component !!!</string>
     <string name="achievement_component">Achievement Component !!!</string>
+    <string name="countdown_component">CountDown Component !!!</string>
 </resources>
