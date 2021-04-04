@@ -101,4 +101,22 @@
         <attr name="timeBgBorderSize" format="dimension" />
         <attr name="timeBgBorderRadius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="SweepStakesCard">
+        <!--<attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color|reference"/>
+        <attr name="secondaryTextColor" format="color|reference"/>-->
+        <attr name="title" format="string"/>
+        <attr name="description" format="string"/>
+        <attr name="pointsPerEntry" format="integer"/>
+        <attr name="entries" format="integer"/>
+        <attr name="timestamp" format="integer"/>
+        <!--<attr name="textPercentage" format="integer"/>
+        <attr name="suffixSymbol" format="string"/>
+        <attr name="textStyle">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+        </attr>-->
+    </declare-styleable>
 </resources>

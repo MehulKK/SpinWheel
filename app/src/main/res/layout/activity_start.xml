@@ -64,4 +64,18 @@
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
 
+    <Button
+        android:id="@+id/btnSweepStakes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="#FDAEB6"
+        android:text="@string/sweepstakes_component"
+        LuckyWheel:layout_constraintStart_toStartOf="@+id/btnCountDown"
+        LuckyWheel:layout_constraintEnd_toEndOf="@+id/btnCountDown"
+        LuckyWheel:layout_constraintTop_toBottomOf="@+id/btnCountDown"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,9 @@
     <string name="header_you">You</string>
     <string name="header_avg">Avg</string>
     <string name="category_spend"><![CDATA[If you spent average amount on<br>🍔 restaurants you could save:<br><b>$76 /mo</b> or <b>$912 /yr</b>]]></string>
+    
+    <!--Sweepstakes Component-->
+    <string name="points">🏆 %spts per entry</string>
+    <string name="entry">🎟️️ %s entries so far</string>
+    <string name="sweepstakes_ends">Sweepstakes ends</string>
 </resources>

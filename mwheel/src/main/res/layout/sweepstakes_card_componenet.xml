@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/sweepstakes_card_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgBg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sweepstack_avatar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBg"
+            app:layout_constraintStart_toStartOf="@+id/imgBg"
+            app:layout_constraintTop_toTopOf="@+id/imgBg"
+            app:srcCompat="@drawable/ic_sweepstakes_shadow" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="235dp" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:textFontWeight="700"
+            android:fontFamily="@font/gopher_bold"
+            android:textColor="@color/textColorBlack"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Enter to Win $250" />
+
+        <TextView
+            android:id="@+id/txtPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/sweepstakes_button_bg"
+            android:fontFamily="@font/gopher_bold"
+            android:textColor="@color/textColorBlack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/txtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:text="@string/points" />
+
+        <TextView
+            android:id="@+id/txtEntry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:background="@drawable/sweepstakes_button_bg"
+            android:fontFamily="@font/gopher_bold"
+            android:textColor="@color/textColorBlack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/txtPoint"
+            app:layout_constraintTop_toTopOf="@+id/txtPoint"
+            tools:text="@string/entry" />
+
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_bold"
+            android:textColor="@color/textColorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtPoint"
+            app:layout_constraintTop_toBottomOf="@+id/txtPoint"
+            tools:text="One $500 winner · Five $100 winners." />
+
+        <View
+            android:id="@+id/viewBottom"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/sweepstakes_card_bottom_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+
+        <TextView
+            android:id="@+id/txtSweepEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/gopher_bold"
+            android:text="@string/sweepstakes_ends"
+            android:textColor="@color/textColorWhite"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewBottom" />
+
+        <com.macv.countdown.CountdownView
+            android:id="@+id/countDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            app:isShowDay="false"
+            app:isShowHour="false"
+            app:isTimeTextBold="true"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewBottom"
+            app:subTextColor="@color/textColorWhite50"
+            app:suffixGravity="bottom"
+            app:suffixTextColor="@color/textColorWhite"
+            app:suffixTextSize="12sp"
+            app:timeTextColor="@color/textColorWhite"
+            app:timeTextSize="22sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

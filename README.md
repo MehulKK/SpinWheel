@@ -27,7 +27,7 @@ allprojects {
 
 ```
 dependencies {
-	implementation 'com.github.MehulKK:SpinWheel:1.0.23'
+	implementation 'com.github.MehulKK:SpinWheel:1.0.24'
 }
 ```
 
@@ -200,4 +200,75 @@ private fun getAchievementList(): ArrayList<AchievementItem> {
             action = "Scan 20 Reciepts + \uD83C\uDFC6 200 ", max = 30, value = 30, outlineColor = "#00FF00", barColor = "#FDAEB6", backgroundColor = "", textColor = "#FFFFFF"))
         return list
 }
+```
+
+## Countdown Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/CountDownComponent.png)
+
+# Configuration
+
+## Usage
+------------------------
+```
+<com.macv.countdown.CountdownView
+        android:id="@+id/countDown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:isTimeTextBold="true"
+        app:suffixGravity="bottom"
+        app:isShowDay="false"
+        app:isShowHour="false"
+        app:suffixTextColor="#000000"
+        app:suffixTextSize="12sp"
+        app:subTextColor="#00000"
+        app:timeTextColor="#000000"
+        app:timeTextSize="22sp"/>
+```
+
+## Code snippet
+
+```
+        val time4 = 2.toLong() * 24 * 60 * 60 * 1000
+        countDown.start(time4)      //mTimeStamp
+        countDown.setMaxUnit("DAY")     //MaxUnit
+
+        // Finish Callback
+        countDown.setOnCountdownEndListener(object : CountdownView.OnCountdownEndListener {
+            override fun onEnd(cv: CountdownView?) {
+                Toast.makeText(this@CountDownComponentActivity, "Finish", Toast.LENGTH_LONG);
+            }
+        })
+```
+
+
+## Countdown Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/SweepSakesComponent.png)
+
+# SweepStakes Component
+
+## Usage
+------------------------
+```
+<com.macv.sweepstakes.SweepStakesCard
+        android:id="@+id/sweepStakesCard"
+        app:title="Hello"
+        app:description="Good Morning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+```
+
+## Code snippet
+
+```
+        val sweepStakesItem = SweepStakesItem(id = 1, title = "Enter to Win \$1000",
+                                    description = "One \$500 winner · Five \$100 winners.",
+                                    pointsPerEntry = 50, entires = 5, timestamp = (2 * 60 * 60 * 1000), maxUnit = "HOUR")
+        sweepStakesCard.setSweepStakesItem(sweepStakesItem)
 ```

@@ -13,5 +13,6 @@ class StartActivity : AppCompatActivity() {
         btnCategory.setOnClickListener { startActivity(Intent(this, CategoryComponentActivity::class.java)) }
         btnAchievement.setOnClickListener { startActivity(Intent(this, AchievementComponentActivity::class.java)) }
         btnCountDown.setOnClickListener { startActivity(Intent(this, CountDownComponentActivity::class.java)) }
+        btnSweepStakes.setOnClickListener { startActivity(Intent(this, SweepStakesComponentActivity::class.java)) }
     }
 }

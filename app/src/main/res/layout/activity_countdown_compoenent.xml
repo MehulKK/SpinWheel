@@ -26,6 +26,7 @@
             app:isShowHour="false"
             app:suffixTextColor="#000000"
             app:suffixTextSize="12sp"
+            app:subTextColor="#00000"
             app:timeTextColor="#000000"
             app:timeTextSize="22sp"/>
 

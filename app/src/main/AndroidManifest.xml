@@ -35,6 +35,11 @@
             android:name=".CountDownComponentActivity"
             android:label="@string/countdown_component"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".SweepStakesComponentActivity"
+            android:label="@string/countdown_component"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
