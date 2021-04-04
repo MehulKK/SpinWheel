@@ -204,7 +204,7 @@ private fun getAchievementList(): ArrayList<AchievementItem> {
 
 ## Countdown Component
 
-![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/CountDownComponent.png)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/countdown_compoenent/samples/countdowncomponent.png)
 
 # Configuration
 
@@ -247,11 +247,11 @@ private fun getAchievementList(): ArrayList<AchievementItem> {
 ```
 
 
-## Countdown Component
+## SweepStakes Component
 
-![alt text](https://github.com/MehulKK/SpinWheel/blob/master/samples/SweepSakesComponent.png)
+![alt text](https://github.com/MehulKK/SpinWheel/blob/countdown_compoenent/samples/sweepsakescomponent.png)
 
-# SweepStakes Component
+# Configuration
 
 ## Usage
 ------------------------

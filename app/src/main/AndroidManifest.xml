@@ -38,7 +38,7 @@
 
         <activity
             android:name=".SweepStakesComponentActivity"
-            android:label="@string/countdown_component"
+            android:label="@string/sweepstakes_component"
             android:screenOrientation="portrait" />
     </application>
 
