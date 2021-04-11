@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/lytCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
@@ -35,7 +36,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imgBg"
             app:layout_constraintStart_toStartOf="@+id/imgBg"
             app:layout_constraintTop_toTopOf="@+id/imgBg"
-            app:srcCompat="@drawable/ic_sweepstakes_shadow" />
+            android:background="@drawable/ic_sweepstakes_shadow" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideLine"
@@ -61,16 +62,32 @@
             tools:text="Enter to Win $250" />
 
         <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_bold"
+            android:textColor="@color/textColorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:text="One $500 winner · Five $100 winners." />
+
+        <TextView
             android:id="@+id/txtPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="21dp"
             android:background="@drawable/sweepstakes_button_bg"
             android:fontFamily="@font/gopher_bold"
             android:textColor="@color/textColorBlack"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/txtTitle"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            app:layout_constraintStart_toStartOf="@+id/txtDesc"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc"
             tools:text="@string/points" />
 
         <TextView
@@ -88,30 +105,31 @@
             tools:text="@string/entry" />
 
         <TextView
-            android:id="@+id/txtDesc"
-            android:layout_width="0dp"
+            android:id="@+id/txtEnter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="19dp"
             android:layout_marginEnd="20dp"
+            android:drawablePadding="10dp"
             android:layout_marginRight="20dp"
             android:ellipsize="end"
             android:fontFamily="@font/gopher_bold"
             android:textColor="@color/textColorBlack"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/txtPoint"
             app:layout_constraintTop_toBottomOf="@+id/txtPoint"
-            tools:text="One $500 winner · Five $100 winners." />
+            android:text="@string/enter_sweepstakes"
+            app:drawableRightCompat="@drawable/ic_arrow_right"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <View
             android:id="@+id/viewBottom"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginTop="24dp"
             android:background="@drawable/sweepstakes_card_bottom_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/imgBg" />
 
         <TextView
             android:id="@+id/txtSweepEnd"

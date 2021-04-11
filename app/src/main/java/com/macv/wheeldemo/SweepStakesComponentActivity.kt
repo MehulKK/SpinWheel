@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.macv.countdown.CountdownView
+import com.macv.sweepstakes.SweepStakesCallBack
 import com.macv.sweepstakes.SweepStakesItem
 import com.macv.wheeldemo.databinding.ActivityCountdownCompoenentBinding
 import com.macv.wheeldemo.databinding.ActivitySweepStakesComponentBinding
@@ -20,5 +21,10 @@ class SweepStakesComponentActivity : AppCompatActivity() {
                             description = "One \$500 winner · Five \$100 winners.",
                             pointsPerEntry = 50, entires = 5, timestamp = (2 * 60 * 60 * 1000), maxUnit = "HOUR")
         sweepStakesCard.setSweepStakesItem(sweepStakesItem)
+        sweepStakesCard.setCallBack(object : SweepStakesCallBack{
+            override fun onSweepStakesClick() {
+                Toast.makeText(this@SweepStakesComponentActivity, "Item Click", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 }

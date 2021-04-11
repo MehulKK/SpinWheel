@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import com.macv.mwheel.R
+import java.util.concurrent.TimeUnit
 
 class CountdownView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
     private val mCountdown: BaseCountdown
@@ -201,16 +202,42 @@ class CountdownView @JvmOverloads constructor(context: Context, attrs: Attribute
 
     private fun reSetTime(ms: Long) {
         var day = 0
-        val hour: Int
-        if (!mCountdown.isConvertDaysToHours) {
+        var hour = 0
+        var minute = 0
+        var second = 0
+
+        /*if (!mCountdown.isConvertDaysToHours) {
             day = (ms / (1000 * 60 * 60 * 24)).toInt()
             hour = (ms % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)).toInt()
         } else {
             hour = (ms / (1000 * 60 * 60)).toInt()
         }
-        val minute = (ms % (1000 * 60 * 60) / (1000 * 60)).toInt()
-        val second = (ms % (1000 * 60) / 1000).toInt()
+        minute = (ms % (1000 * 60 * 60) / (1000 * 60)).toInt()
+        second = (ms % (1000 * 60) / 1000).toInt()*/
         val millisecond = (ms % 1000).toInt()
+
+        when(mCountdown.getMaxUnit())
+        {
+            0 -> {
+                day = (ms / (1000 * 60 * 60 * 24)).toInt()
+                hour = (ms % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)).toInt()
+                minute = (ms % (1000 * 60 * 60) / (1000 * 60)).toInt()
+                second = (ms % (1000 * 60) / 1000).toInt()
+            }
+            1 -> {
+                hour = (ms / (1000 * 60 * 60)).toInt()
+                minute = (ms % (1000 * 60 * 60) / (1000 * 60)).toInt()
+                second = (ms % (1000 * 60) / 1000).toInt()
+            }
+            2 -> {
+                minute = TimeUnit.MILLISECONDS.toMinutes(ms).toInt()
+                second = (ms % (1000 * 60) / 1000).toInt()
+            }
+            3 -> {
+                second = TimeUnit.MILLISECONDS.toSeconds(ms).toInt()
+                //TimeUnit.MILLISECONDS.toMinutes(milliseconds);
+            }
+        }
         mCountdown.setTimes(day, hour, minute, second, millisecond)
     }
 

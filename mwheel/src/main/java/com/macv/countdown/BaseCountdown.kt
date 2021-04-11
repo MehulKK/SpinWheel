@@ -38,7 +38,7 @@ internal open class BaseCountdown {
     protected var mSuffixMinute: String? = null
     protected var mSuffixSecond: String? = null
     protected var mSuffixMillisecond: String? = null
-    protected var mMaxUnit = 0
+    var mMaxUnit = 0
     protected var mSuffixDayTextWidth = 0f
     protected var mSuffixHourTextWidth = 0f
     protected var mSuffixMinuteTextWidth = 0f
@@ -146,6 +146,7 @@ internal open class BaseCountdown {
     }
 
     fun setMaxUnit(mMaxUnit: Int){
+        this.mMaxUnit = mMaxUnit
         when(mMaxUnit){
             0 ->{
                 isShowDay = true
@@ -175,14 +176,18 @@ internal open class BaseCountdown {
         }
     }
 
-    fun setMaxUnitFromString(mMaxUnit : String) : Int {
-        return when (mMaxUnit) {
-            DAY -> 0
-            HOUR -> 1
-            MINUTES -> 2
-            SECOND -> 3
-            else -> 0
+    fun setMaxUnitFromString(maxUnit : String) : Int {
+        when (maxUnit) {
+            DAY -> mMaxUnit = 0
+            HOUR -> mMaxUnit = 1
+            MINUTES -> mMaxUnit = 2
+            SECOND -> mMaxUnit = 3
         }
+        return mMaxUnit;
+    }
+
+    fun getMaxUnit() :Int {
+        return mMaxUnit
     }
 
     fun initialize() {

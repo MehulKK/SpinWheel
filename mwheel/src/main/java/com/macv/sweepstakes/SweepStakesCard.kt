@@ -15,6 +15,7 @@ class SweepStakesCard @JvmOverloads constructor(context: Context, attrs: Attribu
     private var mEntry = 0
     private var mTimeStamp = 0L
     private var mMaxUnit = "DAY"
+    private var mSweepStakesCallBack: SweepStakesCallBack? = null
 
     init {
         LayoutInflater.from(context).inflate(R.layout.sweepstakes_card_componenet, this, true)
@@ -32,6 +33,9 @@ class SweepStakesCard @JvmOverloads constructor(context: Context, attrs: Attribu
             setDescriptionText(mDescription)
             setPointsPerEntry(mPointsPerEntry)
             setEntry(mEntry)
+
+            lytCard.setOnClickListener { mSweepStakesCallBack?.onSweepStakesClick() }
+
             styledAttributes.recycle()
         }
     }
@@ -70,5 +74,9 @@ class SweepStakesCard @JvmOverloads constructor(context: Context, attrs: Attribu
         setPointsPerEntry(mSweepStakesItem.pointsPerEntry)
         setEntry(mSweepStakesItem.entires)
         setCountDown(mSweepStakesItem.timestamp, mSweepStakesItem.maxUnit)
+    }
+
+    fun setCallBack(sweepStakesCallBack: SweepStakesCallBack) {
+        this.mSweepStakesCallBack = sweepStakesCallBack
     }
 }

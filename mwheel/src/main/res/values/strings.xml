@@ -12,4 +12,5 @@
     <string name="points">🏆 %spts per entry</string>
     <string name="entry">🎟️️ %s entries so far</string>
     <string name="sweepstakes_ends">Sweepstakes ends</string>
+    <string name="enter_sweepstakes">Enter Sweepstakes</string>
 </resources>
