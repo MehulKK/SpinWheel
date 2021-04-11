@@ -272,3 +272,30 @@ private fun getAchievementList(): ArrayList<AchievementItem> {
                                     pointsPerEntry = 50, entires = 5, timestamp = (2 * 60 * 60 * 1000), maxUnit = "HOUR")
         sweepStakesCard.setSweepStakesItem(sweepStakesItem)
 ```
+
+## Spin the Wheel Card Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/countdown_compoenent/samples/spin_the_card_component.png)
+
+# Configuration
+
+## Usage
+------------------------
+```
+<com.macv.spinwheel.SpinWheelCardComponent
+    android:id="@+id/spinWheelCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+```
+
+## Code snippet
+
+```
+        val spinWheelCardComponentItem = SpinWheelCardComponentItem(id = 1, maxRewardPoints = 50,pointsPerSpin = 500)
+                spinWheelCard.setSpinWheelCardItem(spinWheelCardComponentItem)
+                spinWheelCard.setCallBack(object : SpinWheelCardCallBack{
+                    override fun onSpinWheelCardClick() {
+                        Toast.makeText(this@SpinWheelCardComponentActivity, "Item Click", Toast.LENGTH_LONG).show()
+                    }
+                })
+```
