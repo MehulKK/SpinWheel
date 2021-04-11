@@ -40,6 +40,11 @@
             android:name=".SweepStakesComponentActivity"
             android:label="@string/sweepstakes_component"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".SpinWheelCardComponentActivity"
+            android:label="@string/spin_the_wheel_component"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

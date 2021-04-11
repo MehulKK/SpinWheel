@@ -13,4 +13,10 @@
     <string name="entry">🎟️️ %s entries so far</string>
     <string name="sweepstakes_ends">Sweepstakes ends</string>
     <string name="enter_sweepstakes">Enter Sweepstakes</string>
+    
+    <!--Spin the wheel Component-->
+    <string name="spin_wheel_title">Spin the Wheel</string>
+    <string name="spin_wheel_sub_title">to Win Points!</string>
+    <string name="spin_wheel_points">🏆️ %spts per spin</string>
+    <string name="spin_wheel_desc">Win up to 🏆️%s pts each spin! </string>
 </resources>
