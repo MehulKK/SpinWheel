@@ -51,12 +51,12 @@ class SpinWheelCardComponent @JvmOverloads constructor(context: Context, attrs: 
 
     fun setMaxRewardPoints(maxRewardPoints: Int) {
         this.mMaxRewardPoints = maxRewardPoints
-        txtPoint.text = String.format(context.getString(R.string.spin_wheel_points), maxRewardPoints)
+        txtDesc.text = String.format(context.getString(R.string.spin_wheel_desc), maxRewardPoints)
     }
 
     fun setPointsPerSpin(pointsPerSpin: Int) {
         this.mPointsPerSpin = pointsPerSpin
-        txtDesc.text = String.format(context.getString(R.string.spin_wheel_desc), pointsPerSpin)
+        txtPoint.text = String.format(context.getString(R.string.spin_wheel_points), pointsPerSpin)
     }
 
     fun setCallBack(spinWheelCardCallBack: SpinWheelCardCallBack) {

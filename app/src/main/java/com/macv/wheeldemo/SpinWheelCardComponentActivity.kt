@@ -22,7 +22,7 @@ class SpinWheelCardComponentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val dataBindingUtil : ActivitySpinWheelCardComponentBindingImpl = DataBindingUtil.setContentView(this, R.layout.activity_spin_wheel_card_component)
-        val spinWheelCardComponentItem = SpinWheelCardComponentItem(id = 1, maxRewardPoints = 50,pointsPerSpin = 500)
+        val spinWheelCardComponentItem = SpinWheelCardComponentItem(id = 1, maxRewardPoints = 500, pointsPerSpin = 50)
         spinWheelCard.setSpinWheelCardItem(spinWheelCardComponentItem)
         spinWheelCard.setCallBack(object : SpinWheelCardCallBack{
             override fun onSpinWheelCardClick() {

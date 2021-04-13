@@ -25,17 +25,19 @@
             android:id="@+id/imgTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:src="@drawable/spin_wheel_top"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <ImageView
             android:id="@+id/imgBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:src="@drawable/spin_wheel_bottom"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/txtTitle"
