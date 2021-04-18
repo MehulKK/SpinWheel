@@ -106,4 +106,18 @@
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
 
+    <Button
+        android:id="@+id/btnToDoCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="#FDAEB6"
+        android:text="@string/todo_card_component"
+        LuckyWheel:layout_constraintStart_toStartOf="@+id/btnPointItemCard"
+        LuckyWheel:layout_constraintEnd_toEndOf="@+id/btnPointItemCard"
+        LuckyWheel:layout_constraintTop_toBottomOf="@+id/btnPointItemCard"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,6 +50,11 @@
             android:name=".PointItemCardComponentActivity"
             android:label="@string/point_item_card_component"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ToDoCardComponentActivity"
+            android:label="@string/todo_card_component"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

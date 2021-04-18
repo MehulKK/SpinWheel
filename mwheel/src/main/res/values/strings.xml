@@ -23,4 +23,8 @@
     <!--Points Item card component-->
     <string name="points_item_ear_cup">🏆</string>
     <string name="points_item_earn">\u0020Earn %s points</string>
+
+    <!--To Do Card Component-->
+    <string name="todo_points">🏆 %s</string>
+    <string name="todo_header">Let’s work on getting you\nyour first boost!</string>
 </resources>

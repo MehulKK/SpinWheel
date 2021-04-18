@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataModel"
+            type="com.macv.todocard.ToDoCardItem" />
+
+        <variable
+            name="clickHandler"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.macv.extensions.UtilsKt" />
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="@{clickHandler::onClick}"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imgCategory"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="@{dataModel.emoji}"
+            android:textColor="@color/textPrimary"
+            android:textSize="20sp"
+            tools:text="G" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_regular"
+            android:maxLines="1"
+            android:text="@{dataModel.name}"
+            android:textColor="@color/backgroundPrimary"
+            android:textFontWeight="500"
+            android:textSize="14sp"
+            tools:text="️First and Last Name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPoints"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_regular"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{String.format(@string/todo_points, dataModel.points)}"
+            android:textColor="@color/backgroundPrimary"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            tools:text="100" />
+
+        <ImageView
+            android:id="@+id/txtYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:textColor="@color/item_text_you"
+            android:textSize="16sp"
+            app:srcCompat="@drawable/ic_arrow_right"
+            tools:text="32%" />
+    </LinearLayout>
+</layout>

@@ -16,5 +16,6 @@ class StartActivity : AppCompatActivity() {
         btnSweepStakes.setOnClickListener { startActivity(Intent(this, SweepStakesComponentActivity::class.java)) }
         btnSpinWheelCard.setOnClickListener { startActivity(Intent(this, SpinWheelCardComponentActivity::class.java)) }
         btnPointItemCard.setOnClickListener { startActivity(Intent(this, PointItemCardComponentActivity::class.java)) }
+        btnToDoCard.setOnClickListener { startActivity(Intent(this, ToDoCardComponentActivity::class.java)) }
     }
 }
