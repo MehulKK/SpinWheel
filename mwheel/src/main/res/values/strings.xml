@@ -19,4 +19,8 @@
     <string name="spin_wheel_sub_title">to Win Points!</string>
     <string name="spin_wheel_points">🏆️ %spts per spin</string>
     <string name="spin_wheel_desc">Win up to 🏆️%s pts each spin! </string>
+
+    <!--Points Item card component-->
+    <string name="points_item_ear_cup">🏆</string>
+    <string name="points_item_earn">\u0020Earn %s points</string>
 </resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataModel"
+            type="com.macv.pointsitemcard.PointsItem" />
+
+        <variable
+            name="clickHandler"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/points_item_card_bg"
+        android:minHeight="120dp"
+        android:onClick="@{clickHandler::onClick}"
+        android:padding="18dp">
+
+        <ImageView
+            android:id="@+id/imgItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{dataModel.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/gopher_regular"
+            android:text="@string/points_item_ear_cup"
+            android:textColor="@color/textColorWhite"
+            android:textFontWeight="700"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtPoints"
+            app:layout_constraintStart_toEndOf="@+id/imgItem"
+            app:layout_constraintTop_toTopOf="@+id/txtPoints"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/points_item_ear_cup" />
+
+
+        <TextView
+            android:id="@+id/txtPoints"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gopher_regular"
+            android:text="@{String.format(@string/points_item_earn, dataModel.reward)}"
+            android:textColor="@color/textColorWhite50"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtTitle"
+            app:layout_constraintStart_toEndOf="@+id/txtEmoji"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Earn 100 points" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gopher_bold"
+            android:maxLines="2"
+            android:text="@{dataModel.title}"
+            android:textColor="@color/textColorWhite"
+            android:textFontWeight="700"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/txtEmoji"
+            app:layout_constraintTop_toBottomOf="@+id/txtPoints"
+            tools:text="Invite  some of your friends" />
+
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/gopher_regular"
+            android:text="@{dataModel.description}"
+            android:textColor="@color/textColorWhite50"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtEmoji"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:text="Earn 100 points" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -45,6 +45,11 @@
             android:name=".SpinWheelCardComponentActivity"
             android:label="@string/spin_the_wheel_component"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PointItemCardComponentActivity"
+            android:label="@string/point_item_card_component"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
