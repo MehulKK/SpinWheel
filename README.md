@@ -299,3 +299,64 @@ private fun getAchievementList(): ArrayList<AchievementItem> {
                     }
                 })
 ```
+
+## Points Item Card Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/countdown_compoenent/samples/points_card_horizontal.png)
+
+## All Attributes
+------------------------
+
+| Attribute | Description | Default |
+| --- | --- | --- |
+| `app:layoutOrientation` | Choose Orientation | `HORIZONTAL` |
+
+
+# Configuration
+
+## Usage
+------------------------
+```
+<com.macv.pointsitemcard.PointsItemCardComponent
+    android:id="@+id/pointItemCard"
+    android:layout_width="match_parent"
+    tools:listitem="@layout/item_points_vertical"
+    app:layoutOrientation="VERTICAL"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:layout_height="wrap_content" />
+```
+
+## Code snippet
+
+```
+        pointItemCard.setDynamicList(getPointsItemList(), object : PointItemCallback {      // set Points List and get callback
+            override fun onPointItemClick(mPosition: Int, pointsItem: PointsItem) {
+                Toast.makeText(this@PointItemCardComponentActivity, pointsItem.title, Toast.LENGTH_SHORT).show()
+            }
+        })
+```
+
+## Todo Card Component
+
+![alt text](https://github.com/MehulKK/SpinWheel/blob/countdown_compoenent/samples/todo_card.png)
+
+# Configuration
+
+## Usage
+------------------------
+```
+<com.macv.todocard.ToDoCardComponent
+    android:id="@+id/toDoCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+```
+
+## Code snippet
+
+```
+        toDoCard.setDynamicList(getPointsItemList(), object : ToDoCallback {        // set ToDo List and get callback
+            override fun onToDoClick(mPos: Int, toDoCardItem: ToDoCardItem) {
+                Toast.makeText(this@ToDoCardComponentActivity, toDoCardItem.name, Toast.LENGTH_SHORT).show()
+            }
+        })
+```
